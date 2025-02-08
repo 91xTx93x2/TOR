@@ -4,16 +4,24 @@ from height_mainnet import check_mempool_height
 from height_testnet import check_testnetmempool_height
 from onion_urls import check_onion_urls
 from onion_blocks import check_onion_blocks
+import os
+
+
+def get_data_path(filename):
+    """Get absolute path for data files in the data subdirectory"""
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(current_dir, "data", filename)
+
 
 if __name__ == "__main__":
     check_tor_connection()
 
     print(f"\n{Fore.YELLOW} CHECKING URLS {Style.RESET_ALL}")
-    check_onion_urls("/Users/anon/Desktop/IT/2025/Tor/Dojo_mainnet.txt")
-    check_onion_urls("/Users/anon/Desktop/IT/2025/Tor/Dojo_testnet.txt")
+    check_onion_urls(get_data_path("Dojo_mainnet.txt"))
+    check_onion_urls(get_data_path("Dojo_testnet.txt"))
 
     print(f"\n{Fore.YELLOW} CHECKING MEMPOOL BLOCKS {Style.RESET_ALL}")
     check_mempool_height()
-    check_onion_blocks("/Users/anon/Desktop/IT/2025/Tor/blocks_mainnet.txt")
+    check_onion_blocks(get_data_path("blocks_mainnet.txt"))
     check_testnetmempool_height()
-    check_onion_blocks("/Users/anon/Desktop/IT/2025/Tor/blocks_testnet.txt")
+    check_onion_blocks(get_data_path("blocks_testnet.txt"))
