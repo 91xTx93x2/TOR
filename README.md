@@ -41,4 +41,3 @@ Inspiration, code snippets, etc.
 - [ASHIGARU](https://ashigaru.rs/)
 - [SENTINEL](https://github.com/dbader/readme-template)
 - [Dojobay](https://dojobay.pw)
-- [fvcproductions](https://github.com/wanderingking072/sentinel-android)
